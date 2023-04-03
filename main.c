@@ -250,7 +250,7 @@ int main(int ac, char **av) {
         if (i == sockfd) {
           add_client();
           break;
-        } else if (FD_ISSET(i, &write_set)) {
+        } else {
           if (msg(i)) {
             remove_client(i);
           }
