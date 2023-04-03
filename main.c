@@ -162,8 +162,8 @@ int msg(int fd) {
   if (recv(cli->fd, buff, 4096, 0) <= 0)
     return (1);
   sprintf(prompt, "client %d: ", cli->id);
-  char *token = ft_strtok(buff, "\n");
-  for (; token != NULL; token = ft_strtok(NULL, "\n")) {
+  char *token = ft_strtok(buff, '\n');
+  for (; token != NULL; token = ft_strtok(NULL, '\n')) {
     if (cli->new)
       send_all(prompt, fd);
     send_all(token, fd);
