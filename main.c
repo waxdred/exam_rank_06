@@ -52,8 +52,6 @@ char *ft_strtok(char *s, char *delim) {
   // déclaration d'une variable statique pour stocker la position de début du
   // prochain token
   static char *next = NULL;
-  // déclaration d'un pointeur vers le début du token
-  char *token;
   // déclaration d'un compteur d'indice pour le tampon de caractères
   int i = 0;
 
@@ -66,8 +64,6 @@ char *ft_strtok(char *s, char *delim) {
   // si "next" est NULL ou pointe vers la fin de la chaîne, retourner NULL
   if (next == NULL || *next == '\0')
     return NULL;
-  // initialiser le pointeur de début du token
-  token = next;
   // tant que le caractère courant n'est pas un caractère de délimitation et que
   // la fin de la chaîne n'a pas été atteinte, stocker le caractère dans le
   // tampon de caractères, incrémenter l'indice et passer au caractère suivant
@@ -164,7 +160,6 @@ t_client *get_client(int fd) {
 
 // Fonction pour gérer les messages reçus des clients
 int msg(int fd) {
-  char c;
   char prompt[100];
   char buff[4096];
   t_client *cli = get_client(fd);
@@ -175,7 +170,6 @@ int msg(int fd) {
   bzero(buff, 4096);
   if (recv(cli->fd, buff, 4096, 0) <= 0)
     return (1);
-  int len = strlen(buff);
   sprintf(prompt, "client %d: ", cli->id);
   char *token = ft_strtok(buff, "\n");
   for (; token != NULL; token = ft_strtok(NULL, "\n")) {
@@ -188,7 +182,7 @@ int msg(int fd) {
 }
 
 void remove_client(int fd) {
-  t_client *remove;
+  t_client *remove = NULL;
   char prompt[100];
   bzero(prompt, 100);
   for (t_client *it = clients; it; it = it->next) {
