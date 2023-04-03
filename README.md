@@ -24,9 +24,9 @@ Le code utilise une structure t_client pour stocker les informations des clients
 Le code utilise plusieurs variables globales pour gérer les connexions et les messages :
 
 - ```sockfd``` : le descripteur de fichier correspondant à la socket du serveur.
-- ```fd_max``` : le numéro maximum de descripteurs de fichiers utilisés. C'est utile pour déterminer la valeur de retour de la fonction select().
-- ```tokenBuff``` : un tampon utilisé par la fonction ft_strtok() pour stocker le jeton analysé.
-- ```pool_set```, read_set et write_set : des ensembles de sockets utilisés par la fonction select() pour détecter les activités de lecture et d'écriture.
+- ```fd_max``` : le numéro maximum de descripteurs de fichiers utilisés. C'est utile pour déterminer la valeur de retour de la fonction ```select()```.
+- ```tokenBuff``` : un tampon utilisé par la fonction ```ft_strtok()``` pour stocker le jeton analysé.
+- ```pool_set```, read_set et write_set : des ensembles de sockets utilisés par la fonction ```select()``` pour détecter les activités de lecture et d'écriture.
 - ```clients``` : un pointeur vers la liste doublement chaînée des clients connectés.
 
 ## Fonctions
