@@ -4,6 +4,16 @@ Ce projet est une implémentation d'un chatroom. Le serveur accepte des connexio
 
 Le programme est écrit en C et utilise les sockets pour la communication en réseau. Le code est modulaire et contient plusieurs fonctions pour gérer les connexions et les messages entrants.
 
+## usage
+Compilation est execution du programme sur le port ```8888```:
+```fish
+gcc -Wall -Wextra -Werror main.c -o server && ./server 8888
+```
+Connection au server
+```fish
+nc localhost 8888
+```
+
 ## Fonctionnement
 L'exécution du serveur se fait avec la commande ./server port où port est le numéro du port sur lequel le serveur doit écouter les connexions entrantes.
 
