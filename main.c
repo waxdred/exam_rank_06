@@ -60,14 +60,14 @@ char *ft_strtok(char *s, char delim) {
   // tampon de caractères, incrémenter l'indice et passer au caractère suivant
   while (*next != '\0' && *next != delim) {
     tokenBuff[i++] = *next;
-    *next++ = '\0';
+    next++;
   }
   // si le caractère courant est un caractère de délimitation,
   // stocker le caractère dans le tampon, incrémenter l'indice, stocker le
   // caractère nul '\0' et passer au caractère suivant
   if (*next != '\0') {
     tokenBuff[i++] = *next++;
-    *next = '\0';
+    *next++ = '\0;
   }
   // retourner le pointeur vers le début du token
   return tokenBuff;
