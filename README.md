@@ -1,4 +1,4 @@
-# exam_rank_06
+# 42 exam_rank_06
 ## Introduction
 Ce projet est une implémentation d'un chatroom. Le serveur accepte des connexions des clients et leur permet de communiquer entre eux.
 
