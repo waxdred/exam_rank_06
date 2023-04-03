@@ -39,16 +39,7 @@ void Fatal() {
   exit(1);
 }
 
-char *ft_strchr(char *s, int c) {
-  while (*s != '\0' && *s != c) {
-    s++;
-  }
-  if (*s == c)
-    return (s);
-  return NULL;
-}
-
-char *ft_strtok(char *s, char *delim) {
+char *ft_strtok(char *s, char delim) {
   // déclaration d'une variable statique pour stocker la position de début du
   // prochain token
   static char *next = NULL;
@@ -67,9 +58,9 @@ char *ft_strtok(char *s, char *delim) {
   // tant que le caractère courant n'est pas un caractère de délimitation et que
   // la fin de la chaîne n'a pas été atteinte, stocker le caractère dans le
   // tampon de caractères, incrémenter l'indice et passer au caractère suivant
-  while (*next != '\0' && ft_strchr(delim, *next) == NULL) {
+  while (*next != '\0' && *next != delim) {
     tokenBuff[i++] = *next;
-    next++;
+    *next++ = '\0';
   }
   // si le caractère courant est un caractère de délimitation,
   // stocker le caractère dans le tampon, incrémenter l'indice, stocker le
