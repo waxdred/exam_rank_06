@@ -7,7 +7,7 @@ Le programme est écrit en C et utilise les sockets pour la communication en ré
 ## usage
 Compilation est execution du programme sur le port```8888```:
 ```fish
-gcc -Wall -Wextra -Werror main.c && ./a.out 8888
+gcc -Wall -Wextra -Werror main.c -o server && ./server 8888
 ```
 Connection au server
 ```fish
