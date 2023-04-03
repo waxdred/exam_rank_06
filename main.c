@@ -76,7 +76,7 @@ char *ft_strtok(char *s, char *delim) {
   // caractère nul '\0' et passer au caractère suivant
   if (*next != '\0') {
     tokenBuff[i++] = *next++;
-    *next++ = '\0';
+    *next = '\0';
   }
   // retourner le pointeur vers le début du token
   return tokenBuff;
