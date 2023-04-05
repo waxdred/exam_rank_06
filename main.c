@@ -177,16 +177,16 @@ int main(int ac, char **av) {
     Wrong();
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if (sockfd == -1)
-    exit(0);
+    Fatal();
   bzero(&servaddr, sizeof(servaddr));
   servaddr.sin_family = AF_INET;
   servaddr.sin_addr.s_addr = htonl(2130706433); // 127.0.0.1
   servaddr.sin_port = htons(atoi(av[1]));
 
   if ((bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr))) < 0)
-    exit(0);
+    Fatal();
   if (listen(sockfd, 10000) < 0) {
-    exit(0);
+    Fatal();
   }
   FD_ZERO(&pool_set);
   FD_ZERO(&read_set);
